@@ -9,4 +9,8 @@ test('add 4 todos', async ({ page }) => {
     await box.fill(item);
     await box.press('Enter');
   }
-});
+  await page.getByRole('listitem')
+    .filter({ hasText: 'Create an event' })
+    .getByRole('checkbox')
+    .check();
+});  
